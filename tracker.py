@@ -7,7 +7,8 @@ from datetime import datetime, timezone, timedelta
 
 class Tracker:
     def __init__(self, path: str = "config.json") -> None:
-        with open(path, 'r', encoding = 'utf-8') as f:
+        self.__path = path
+        with open(self.path, 'r', encoding = 'utf-8') as f:
             self.config = json.load(f)
         self.__fetch().__analyze().__update()
 
@@ -34,9 +35,8 @@ class Tracker:
         return self
 
     def __analyze(self):
-        with open(self.config["cache"], 'r', encoding = self.config["encoding"]) as f:
-            cache = json.load(f)
-        
+        cache = self.config["cache"]
+
         for i in self.__new:
             if i in cache:
                 temp = list()
@@ -62,11 +62,9 @@ class Tracker:
                     for chunk in bot.send_message("capybara", j["context"][0]):
                         pass
                     
-                    try:
-                        j["context"] = [search(r"'en':\s*'(.+?)',", chunk["text"]).group(1), search(r"'zh':\s*'(.+?)',", chunk["text"]).group(1)]
-                        j["code"] = self.__re(search(r"'code':\s*'(.+?)'}", chunk["text"]).group(1))
-                    except:
-                        print(chunk["text"])
+                    j["context"] = [search(r"'en':\s*'(.+?)',", chunk["text"]).group(1), search(r"'zh':\s*'(.+?)',", chunk["text"]).group(1)]
+                    code = search(r"'code':\s*'(.+?)'}", chunk["text"])
+                    if code: j["code"] = self.__re(code.group(1))
 
                     timer = randrange(100, 120)
                     time.sleep(timer)
@@ -76,10 +74,8 @@ class Tracker:
 
         ChatGPT()
 
-        with open(self.config["cache"], 'w', encoding = self.config["encoding"]) as f1, \
-                open(self.config["data_path"], 'w', encoding = self.config["encoding"]) as f2:
-            json.dump(cache, f1)
-            json.dump(self.__new, f2)
+        with open(self.__path, 'w', encoding = self.config["encoding"]) as f:
+            json.dump(self.config, f)
 
         return self
 

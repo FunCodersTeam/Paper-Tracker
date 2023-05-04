@@ -1,8 +1,7 @@
 {
     "en_md": "README.md",
     "zh_md": "README_ZH.md",
-    "cache": "data/cache.json",
-    "data_path": "data/data.json",
+    "cache": {},
     "prompt": "Give you a piece of text, you need to use about 30 words to accurately summarize the content, then translate it into Chinese, and then judge whether the code is provided, please follow the standard dictionary format {'en': summary content, 'zh': Chinese summary, 'code': code address} output",
     "encoding": "utf-8",
     "max_results": 5,

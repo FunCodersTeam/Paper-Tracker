@@ -18,12 +18,13 @@
 
 [SLAM](#SLAM) | [NeRF](#NeRF)
 
-> ### `更新时间：2023-05-04 07:27:33`
+> ### `更新时间：2023-05-04 13:08:48`
 
 ## **SLAM**
 
 | 发布时间 | 标题 | 总结 | 论文 | 代码 |
 |:-:|:-:|:-:|:-:|:-:|
+|2023-05-03|Direct LiDAR-Inertial Odometry and Mapping: Perceptive and Connective SLAM|本文提出了一种直接LiDAR-惯性里程计和建图（DLIOM）的鲁棒SLAM算法，专注于计算效率、操作可靠性和实际效果。DLIOM包含前端和后端子系统中的关键算法创新，设计出一种具有韧性的LiDAR-惯性体系结构，可感知环境并为自主机器人平台提供精确的定位和高保真的三维建图。作者通过采用积极的安全保护措施来解决常见的算法失效点，以提供长期的操作可靠性。他们还详细介绍了定位精度和建图弹性方面的创新，以全面提高算法速度、精度和鲁棒性。文章还包括了在资源受限系统上实现这种复杂系统进行实时状态估计所获得的见解，实验结果显示了他们的方法在公共基准和自采集数据集上与现有技术相比的性能提高。|[2305.01843](http://arxiv.org/pdf/2305.01843.pdf)|
 |2023-05-02|EgoLocate: Real-time Motion Capture, Localization, and Mapping with Sparse Body-mounted Sensors|EgoLocate系统将惯性传感器和相机集成在一起，用于实时人体运动捕捉、定位和建图。它使用基于图像的SLAM进行定位，使用惯性mocap提供相机运动先验，相比于现有技术，提高了定位精度。我们的代码可在https://xinyu-yi.github.io/EgoLocate/上获取。|[2305.01599](http://arxiv.org/pdf/2305.01599.pdf)|[Link](https://xinyu-yi.github.io/EgoLocate/)|
 |2023-04-30|LIMOT: A Tightly-Coupled System for LiDAR-Inertial Odometry and Multi-Object Tracking|该研究提出了一种紧密耦合的多目标跟踪和LiDAR惯性SLAM系统LIMOT，适用于自动驾驶。LIMOT使用由目标检测器生成的三维边界框，并使用IMU预积分进行LiDAR里程计计算。基于跟踪对象的历史轨迹，执行鲁棒的对象关联。采用基于轨迹的动态特征过滤方法来过滤属于移动对象的特征。然后进行因子图优化，以优化IMU偏差和姿态估计。实验表明，LIMOT比基准方法具有更好的姿态和跟踪精度。未提供代码。|[2305.00406](http://arxiv.org/pdf/2305.00406.pdf)|
 |2023-04-29|Modality-invariant Visual Odometry for Embodied Vision|本研究提出了一种基于Transformer的模态不变Visual Odometry（VO）方法，可以处理导航代理的多样化或变化的传感器套件。该模型在只使用部分数据进行训练的情况下优于先前的方法。该方法为更广泛的实际应用开启了大门，可以从灵活和学习到的VO模型中受益。未提供代码。|[2305.00348](http://arxiv.org/pdf/2305.00348.pdf)|

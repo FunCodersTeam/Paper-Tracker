@@ -18,12 +18,13 @@
 
 [SLAM](#SLAM) | [NeRF](#NeRF)
 
-> ### `更新时间：2023-05-05 07:07:12`
+> ### `更新时间：2023-05-05 13:14:50`
 
 ## **SLAM**
 
 | 发布时间 | 标题 | 总结 | 论文 | 代码 |
 |:-:|:-:|:-:|:-:|:-:|
+|2023-05-04|Edge-aware Consistent Stereo Video Depth Estimation|我们提出了一种一致的方法，使用立体视频和左右一致性损失来提高性能，进行密集视频深度估计。我们的边缘感知立体视频模型可以准确地估计密集深度图。|[2305.02645](http://arxiv.org/pdf/2305.02645.pdf)|
 |2023-05-03|Direct LiDAR-Inertial Odometry and Mapping: Perceptive and Connective SLAM|本文提出了一种直接LiDAR-惯性里程计和建图（DLIOM）的鲁棒SLAM算法，专注于计算效率、操作可靠性和实际效果。DLIOM包含前端和后端子系统中的关键算法创新，设计出一种具有韧性的LiDAR-惯性体系结构，可感知环境并为自主机器人平台提供精确的定位和高保真的三维建图。作者通过采用积极的安全保护措施来解决常见的算法失效点，以提供长期的操作可靠性。他们还详细介绍了定位精度和建图弹性方面的创新，以全面提高算法速度、精度和鲁棒性。文章还包括了在资源受限系统上实现这种复杂系统进行实时状态估计所获得的见解，实验结果显示了他们的方法在公共基准和自采集数据集上与现有技术相比的性能提高。|[2305.01843](http://arxiv.org/pdf/2305.01843.pdf)|
 |2023-05-02|EgoLocate: Real-time Motion Capture, Localization, and Mapping with Sparse Body-mounted Sensors|EgoLocate系统将惯性传感器和相机集成在一起，用于实时人体运动捕捉、定位和建图。它使用基于图像的SLAM进行定位，使用惯性mocap提供相机运动先验，相比于现有技术，提高了定位精度。我们的代码可在https://xinyu-yi.github.io/EgoLocate/上获取。|[2305.01599](http://arxiv.org/pdf/2305.01599.pdf)|[Link](https://xinyu-yi.github.io/EgoLocate/)|
 |2023-04-30|LIMOT: A Tightly-Coupled System for LiDAR-Inertial Odometry and Multi-Object Tracking|该研究提出了一种紧密耦合的多目标跟踪和LiDAR惯性SLAM系统LIMOT，适用于自动驾驶。LIMOT使用由目标检测器生成的三维边界框，并使用IMU预积分进行LiDAR里程计计算。基于跟踪对象的历史轨迹，执行鲁棒的对象关联。采用基于轨迹的动态特征过滤方法来过滤属于移动对象的特征。然后进行因子图优化，以优化IMU偏差和姿态估计。实验表明，LIMOT比基准方法具有更好的姿态和跟踪精度。未提供代码。|[2305.00406](http://arxiv.org/pdf/2305.00406.pdf)|
@@ -37,6 +38,9 @@
 
 | 发布时间 | 标题 | 总结 | 论文 | 代码 |
 |:-:|:-:|:-:|:-:|:-:|
+|2023-05-04|NeuralEditor: Editing Neural Radiance Fields via Manipulating Point Clouds|本文提出了NeuralEditor，它通过显式点云表示和新颖的渲染方案，使神经辐射场（NeRFs）可进行形状编辑。NeuralEditor在形状变形和场景变形任务上实现了最先进的性能，并支持零样本推理和微调。代码、基准测试和演示视频可在https://immortalco.github.io/NeuralEditor获得。|[2305.03049](http://arxiv.org/pdf/2305.03049.pdf)|[Link](https://github.com/immortalco/NeuralEditor)|
+|2023-05-04|Radiance Field Gradient Scaling for Unbiased Near-Camera Training|本文提出了一种梯度缩放方法，以抵消NeRF采集中的采样偏差，从而防止背景坍塌和浮动伪影。我们的方法不需要近平面，可以在大多数NeRF实现中使用，且仅需几行代码即可实现，没有任何显著的额外开销。|[2305.02756](http://arxiv.org/pdf/2305.02756.pdf)|
+|2023-05-04|Semantic-aware Generation of Multi-view Portrait Drawings|本文提出了一种语义感知生成器（SAGE），用于合成多视角肖像画，克服了基于NeRF的方法在生成此类画作中的局限性。SAGE使用面部语义标签协同合成多视角语义地图和相应的肖像画。语义感知域转换器促进了训练，而通过合成进行的数据增强则减少了坍塌的结果。实验结果表明，与现有的3D感知图像合成方法相比，SAGE的性能明显优越或高度竞争。代码可在https://github.com/AiArt-HDU/SAGE获得。|[2305.02618](http://arxiv.org/pdf/2305.02618.pdf)|[Link](https://github.com/AiArt-HDU/SAGE)|
 |2023-05-02|Neural LiDAR Fields for Novel View Synthesis|本文提出了用于LiDAR的神经场（NFL）方法，该方法从LiDAR测量中优化神经场场景表示，以从新视点合成逼真的LiDAR扫描。NFL将神经场的渲染能力与LiDAR感知过程的详细物理模型相结合，可以准确地再现关键传感器行为，如光束发散、二次回波和光线丢失。该方法在合成和真实LiDAR扫描上的表现均优于显式重建-模拟方法以及其他NeRF风格的LiDAR新视点合成方法。此外，我们证明合成视图的改进逼真度缩小了与真实扫描之间的领域差距，并转化为更好的配准和语义分割性能。未提供代码。|[2305.01643](http://arxiv.org/pdf/2305.01643.pdf)|
 |2023-05-02|LatentAvatar: Learning Latent Expression Code for Expressive Neural Head Avatar|本文提出了一种表情自适应的神经头像生成方法LatentAvatar，其通过学习端到端和自监督的方式，使用潜在表情编码来驱动神经元渲染形式的头像生成。现有的基于NeRF的头像生成方法往往依赖于面部模板或使用表情系数作为驱动信号，其性能受到模板表情和跟踪精度的限制。LatentAvatar利用潜在头部NeRF从单目肖像视频中学习特定个体的潜在表情编码，并使用Y形网络学习不同主体的共享潜在表情编码，以实现跨身份重现。通过在NeRF中优化光度重建目标，学习的潜在表情编码具有3D感知能力，能够捕捉高频细节表情，使LatentAvatar能够在不同主体之间进行表情重现。实验结果表明，LatentAvatar在定量和定性比较中均优于先前的最先进解决方案，能够捕捉具有挑战性的表情和牙齿、眼球的微小运动。项目页面：https://www.liuyebin.com/latentavatar。未提供代码。|[2305.01190](http://arxiv.org/pdf/2305.01190.pdf)|
 |2023-05-02|Federated Neural Radiance Fields|本文提出了一种基于联邦学习的方法，用于训练神经辐射场（NeRF）进行场景表示。先前的方法依赖于集中式学习，假定所有的训练图像都在一个计算节点上可用。相比之下，本文考虑了联邦学习，其中多个计算节点分别获取不同的观察数据，以并行方式学习共同的NeRF。这支持了使用多个代理协同建模场景的情况。本文的贡献是第一个针对NeRF的联邦学习算法，它将训练工作分布在多个计算节点上，并避免了在中心节点汇总图像的需要。引入了一种基于NeRF层的低秩分解技术，以减少聚合模型参数的带宽消耗。与其传输原始数据，传输压缩模型还可以提高数据收集代理的隐私性。未提供代码。|[2305.01163](http://arxiv.org/pdf/2305.01163.pdf)|

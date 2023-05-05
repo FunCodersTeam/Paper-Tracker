@@ -2,7 +2,7 @@
 
 [中文](./README_ZH.md) | English
 
-🔥 This repo collects the latest research papers in the field of **Artificial Intelligence** from [arXiv]("https://arxiv.org/") and uses ChatGPT to summarize them, providing convenience for anyone who wants to study them
+🔥 This repo collects the latest research papers in the field of **Artificial Intelligence** from [arXiv](https://arxiv.org/) and uses ChatGPT to summarize them, providing convenience for anyone who wants to study them
 
 
 
@@ -20,16 +20,24 @@
 
 > ### `Update(BJT)：2023-05-03 15:59:09`
 
+<details><summary>
+
 ## **SLAM**
 
-| Publish Date | Title | Summary | Paper | Code |
-|:-:|:-:|:-:|:-:|:-:|
+</summary>
 
-<br>
+| Publish Date | Title | Summary |
+|:-:|:-:|:-:|
+
+</details>
+<details><summary>
 
 ## **NeRF**
 
-| Publish Date | Title | Summary | Paper | Code |
-|:-:|:-:|:-:|:-:|:-:|
+</summary>
 
+| Publish Date | Title | Summary |
+|:-:|:-:|:-:|
+
+</details>
 </div>

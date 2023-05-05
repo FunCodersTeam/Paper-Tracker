@@ -28,7 +28,6 @@ class Tracker:
                     "title": r.title,
                     "url": r.entry_id[:-2].replace('/abs/', '/pdf/') + '.pdf',
                     "time": r.updated.date().strftime("%Y-%m-%d"),
-                    "code": None,
                     "context": [r.summary.replace("\n"," "), ]
                 })
             self.__new[k] = temp
@@ -63,8 +62,6 @@ class Tracker:
                         pass
                     
                     j["context"] = [search(r"'en':\s*'(.+?)',", chunk["text"]).group(1), search(r"'zh':\s*'(.+?)',", chunk["text"]).group(1)]
-                    code = search(r"'code':\s*'(.+?)'}", chunk["text"])
-                    if code: j["code"] = self.__re(code.group(1))
 
                     timer = randrange(100, 120)
                     time.sleep(timer)
@@ -84,18 +81,17 @@ class Tracker:
             with open(file, "r+", encoding = self.config["encoding"]) as file:
                 lines = file.readlines()
                 lines[20] = ("> ### `更新时间：" if zh else "> ### `Update(BJT)：") + now + "`\n"
-                keys, key, i = list(self.__new.keys()), 0, 25
+                keys, key, i = list(self.__new.keys()), 0, 29
                 msgs = ""
 
                 while i < len(lines):
                     line = lines[i]
-                    if line == "|:-:|:-:|:-:|:-:|:-:|\n":
+                    if line == "|:-:|:-:|:-:|\n":
                         if self.__new[keys[key]] and zh: msgs += (lines[i-3] + lines[i-2] + lines[i-1] + line)
 
                         for p in self.__new[keys[key]]:
-                            lines.insert(i + 1, "|{}|{}|{}|[{}]({})|".format(p["time"], p["title"], \
-                                    p["context"][1] if zh else p["context"][0], p["id"], p["url"]) + \
-                                        ("[Link]({})|\n".format(p['code']) if p["code"] else "\n"))
+                            lines.insert(i + 1, "|{}|[{}]({})|{}|".format(p["time"], p["title"], p["url"], \
+                                    p["context"][1] if zh else p["context"][0]))
                             if zh: msgs += lines[i + 1]
                             i += 1
                         key += 1

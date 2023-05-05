@@ -2,7 +2,7 @@
 
 中文 | [English](./README.md)
 
-🔥 该 repo 会自动收集 [arXiv]("https://arxiv.org/") 上**人工智能**方向最新的论文，并使用 ChatGPT 对论文进行总结，供任何想对其进行研究的人使用
+🔥 该 repo 会自动收集 [arXiv](https://arxiv.org/) 上**人工智能**方向最新的论文，并使用 ChatGPT 对论文进行总结，供任何想对其进行研究的人使用
 
 🔔 支持微信推送，[点击订阅](https://wxpusher.zjiecode.com/wxuser/?type=2&id=9888#/follow)
 
@@ -20,16 +20,24 @@
 
 > ### `更新时间：2023-05-03 15:59:09`
 
+<details><summary>
+
 ## **SLAM**
 
-| 发布时间 | 标题 | 总结 | 论文 | 代码 |
-|:-:|:-:|:-:|:-:|:-:|
+</summary>
 
-<br>
+| 发布时间 | 标题 | 总结 |
+|:-:|:-:|:-:|
+
+</details>
+<details><summary>
 
 ## **NeRF**
 
-| 发布时间 | 标题 | 总结 | 论文 | 代码 |
-|:-:|:-:|:-:|:-:|:-:|
+</summary>
 
+| 发布时间 | 标题 | 总结 |
+|:-:|:-:|:-:|
+
+</details>
 </div>

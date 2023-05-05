@@ -1,18 +1,16 @@
 import json
-from poe import Client
 from os import environ
 from wxpusher import WxPusher
-from arxiv import Search, SortCriterion
-from datetime import datetime, timezone, timedelta
 
 class Tracker:
     def __init__(self, path: str = "config.json") -> None:
         self.__path = path
-        with open(self.path, 'r', encoding = 'utf-8') as f:
+        with open(self.__path, 'r', encoding = 'utf-8') as f:
             self.config = json.load(f)
         self.__fetch().__analyze().__update()
 
     def __fetch(self):
+        from arxiv import Search, SortCriterion
         self.__new = dict()
         for k, v in self.config["keywords"].items():
             temp = list()
@@ -52,6 +50,7 @@ class Tracker:
         def ChatGPT():
             import time
             from re import search
+            from poe import Client
             from random import randrange
             bot = Client(environ["TOKEN"])
             for _ in bot.send_message("capybara", self.config["prompt"], with_chat_break = True):
@@ -61,7 +60,8 @@ class Tracker:
                     for chunk in bot.send_message("capybara", j["context"][0]):
                         pass
                     
-                    j["context"] = [search(r"'en':\s*'(.+?)',", chunk["text"]).group(1), search(r"'zh':\s*'(.+?)',", chunk["text"]).group(1)]
+                    j["context"] = [search(r"'en':\s*'(.+?)',", chunk["text"]).group(1), \
+                                    search(r"'zh':\s*'(.+?)',", chunk["text"]).group(1)]
 
                     timer = randrange(100, 120)
                     time.sleep(timer)
@@ -77,43 +77,43 @@ class Tracker:
         return self
 
     def __update(self):
+        import shutil
+        import tempfile
+        from datetime import datetime, timezone, timedelta
+
         def update(file, zh = False) -> None:
-            with open(file, "r+", encoding = self.config["encoding"]) as file:
-                lines = file.readlines()
-                lines[20] = ("> ### `更新时间：" if zh else "> ### `Update(BJT)：") + now + "`\n"
-                keys, key, i = list(self.__new.keys()), 0, 29
-                msgs = ""
+            with open(file, "r", encoding = self.config["encoding"]) as file:
+                with tempfile.NamedTemporaryFile(mode = "w+", encoding = self.config["encoding"], delete = False) as temp_file:
+                    i, keys, key, msgs = 0, list(self.__new.keys()), 0, ""
 
-                while i < len(lines):
-                    line = lines[i]
-                    if line == "|:-:|:-:|:-:|\n":
-                        if self.__new[keys[key]] and zh: msgs += (lines[i-3] + lines[i-2] + lines[i-1] + line)
+                    for line in file:
+                        if i == 20:
+                            temp_file.write(("> ### `更新时间：" if zh else "> ### `Update(BJT)：") + now + "`\n")
+                        elif line == "|:-:|:-:|:-:|\n":
+                            temp_file.write(line)
+                            if key >= len(keys): continue
 
-                        for p in self.__new[keys[key]]:
-                            lines.insert(i + 1, "|{}|[{}]({})|{}|".format(p["time"], p["title"], p["url"], \
-                                    p["context"][1] if zh else p["context"][0]))
-                            if zh: msgs += lines[i + 1]
-                            i += 1
-                        key += 1
-                    i += 1
-                file.seek(0)
-                file.writelines(lines)
-                self.__wechat(msgs)
+                            if self.__new[keys[key]] and zh: 
+                                msgs += f'## **{keys[key]}**\r\n| 发布时间 | 标题 | 总结 |\r\n|:-:|:-:|:-:|\r\n'
+
+                            for p in self.__new[keys[key]]:
+                                new_line = "|{}|[{}]({})|{}|\n".format(p["time"], p["title"], p["url"], \
+                                                                       p["context"][1] if zh else p["context"][0])
+                                temp_file.write(new_line)
+                                if zh:
+                                    msgs += new_line
+                            key += 1
+                        else:
+                            temp_file.write(line)
+                        i += 1
+                    temp_file.flush()
+                    shutil.copy(temp_file.name, file.name)
+            self.__wechat(msgs)
 
         tz = timezone(timedelta(hours = 8))
         now = datetime.now(tz).strftime("%Y-%m-%d %H:%M:%S")
         update(self.config["en_md"])
         update(self.config["zh_md"], True)
-
-    def __re(self, s):
-        start = s.find('http')
-        if start != -1:
-            end = s.find(' ', start)
-            if end == -1:
-                end = len(s)
-            return s[start:end]
-        else:
-            return ""
 
     def __wechat(self, msg: str):
         if not msg: return

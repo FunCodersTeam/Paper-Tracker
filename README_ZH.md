@@ -18,12 +18,13 @@
 
 [SLAM](#SLAM) | [NeRF](#NeRF)
 
-> ### `更新时间：2023-05-08 07:04:57`
+> ### `更新时间：2023-05-08 13:10:34`
 
 ## **SLAM**
 
 | 发布时间 | 标题 | 总结 | 论文 | 代码 |
 |:-:|:-:|:-:|:-:|:-:|
+|2023-05-05|Multi S-graphs: A Collaborative Semantic SLAM architecture|Multi S-Graphs是一种CSLAM算法，它利用分层语义图的高级语义信息，改善多个机器人之间的循环闭合过程和协同地图生成，同时最小化机器人之间的信息交换。实验结果表明，该算法在地图生成任务中表现出了良好的性能。|[2305.03441](http://arxiv.org/pdf/2305.03441.pdf)|
 |2023-05-04|Edge-aware Consistent Stereo Video Depth Estimation|我们提出了一种一致的方法，使用立体视频和左右一致性损失来提高性能，进行密集视频深度估计。我们的边缘感知立体视频模型可以准确地估计密集深度图。|[2305.02645](http://arxiv.org/pdf/2305.02645.pdf)|
 |2023-05-03|Direct LiDAR-Inertial Odometry and Mapping: Perceptive and Connective SLAM|本文提出了一种直接LiDAR-惯性里程计和建图（DLIOM）的鲁棒SLAM算法，专注于计算效率、操作可靠性和实际效果。DLIOM包含前端和后端子系统中的关键算法创新，设计出一种具有韧性的LiDAR-惯性体系结构，可感知环境并为自主机器人平台提供精确的定位和高保真的三维建图。作者通过采用积极的安全保护措施来解决常见的算法失效点，以提供长期的操作可靠性。他们还详细介绍了定位精度和建图弹性方面的创新，以全面提高算法速度、精度和鲁棒性。文章还包括了在资源受限系统上实现这种复杂系统进行实时状态估计所获得的见解，实验结果显示了他们的方法在公共基准和自采集数据集上与现有技术相比的性能提高。|[2305.01843](http://arxiv.org/pdf/2305.01843.pdf)|
 |2023-05-02|EgoLocate: Real-time Motion Capture, Localization, and Mapping with Sparse Body-mounted Sensors|EgoLocate系统将惯性传感器和相机集成在一起，用于实时人体运动捕捉、定位和建图。它使用基于图像的SLAM进行定位，使用惯性mocap提供相机运动先验，相比于现有技术，提高了定位精度。我们的代码可在https://xinyu-yi.github.io/EgoLocate/上获取。|[2305.01599](http://arxiv.org/pdf/2305.01599.pdf)|[Link](https://xinyu-yi.github.io/EgoLocate/)|
@@ -38,6 +39,7 @@
 
 | 发布时间 | 标题 | 总结 | 论文 | 代码 |
 |:-:|:-:|:-:|:-:|:-:|
+|2023-05-04|NeRF-QA: Neural Radiance Fields Quality Assessment Database|本文提出了NeRF-QA数据库，其中包含48个视频，这些视频使用七种基于NeRF的方法合成，包括真实的和合成的360度场景，并附有主观质量评分。该数据库将允许评估现有客观质量度量方法对于NeRF合成视图的适用性，以及开发特定于此案例的新的质量度量方法。|[2305.03176](http://arxiv.org/pdf/2305.03176.pdf)|
 |2023-05-04|NeuralEditor: Editing Neural Radiance Fields via Manipulating Point Clouds|本文提出了NeuralEditor，它通过显式点云表示和新颖的渲染方案，使神经辐射场（NeRFs）可进行形状编辑。NeuralEditor在形状变形和场景变形任务上实现了最先进的性能，并支持零样本推理和微调。代码、基准测试和演示视频可在https://immortalco.github.io/NeuralEditor获得。|[2305.03049](http://arxiv.org/pdf/2305.03049.pdf)|[Link](https://github.com/immortalco/NeuralEditor)|
 |2023-05-04|Radiance Field Gradient Scaling for Unbiased Near-Camera Training|本文提出了一种梯度缩放方法，以抵消NeRF采集中的采样偏差，从而防止背景坍塌和浮动伪影。我们的方法不需要近平面，可以在大多数NeRF实现中使用，且仅需几行代码即可实现，没有任何显著的额外开销。|[2305.02756](http://arxiv.org/pdf/2305.02756.pdf)|
 |2023-05-04|Semantic-aware Generation of Multi-view Portrait Drawings|本文提出了一种语义感知生成器（SAGE），用于合成多视角肖像画，克服了基于NeRF的方法在生成此类画作中的局限性。SAGE使用面部语义标签协同合成多视角语义地图和相应的肖像画。语义感知域转换器促进了训练，而通过合成进行的数据增强则减少了坍塌的结果。实验结果表明，与现有的3D感知图像合成方法相比，SAGE的性能明显优越或高度竞争。代码可在https://github.com/AiArt-HDU/SAGE获得。|[2305.02618](http://arxiv.org/pdf/2305.02618.pdf)|[Link](https://github.com/AiArt-HDU/SAGE)|

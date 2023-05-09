@@ -18,12 +18,14 @@
 
 [SLAM](#SLAM) | [NeRF](#NeRF)
 
-> ### `更新时间：2023-05-09 07:06:42`
+> ### `更新时间：2023-05-09 13:16:29`
 
 ## **SLAM**
 
 | 发布时间 | 标题 | 总结 | 论文 | 代码 |
 |:-:|:-:|:-:|:-:|:-:|
+|2023-05-07|Simulation of Dynamic Environments for SLAM|仿真引擎缺乏完全的控制、ROS集成、逼真的物理效果或照片般的真实感。GRADE是一个生成逼真的动态环境的框架。YOLO和Mask R-CNN模型表明需要在动态SLAM方面进行额外的研究。代码和数据是开源的。|[2305.04286](http://arxiv.org/pdf/2305.04286.pdf)|[Link](https://eliabntt.github.io/grade-rrSimulation)|
+|2023-05-06|Robust optimization of control parameters for WEC arrays using stochastic methods|本文提出了一个计算优化框架，用于在不规则波中对波浪能转换器（WEC）的公园进行鲁棒控制。WEC公园的功率是针对每个设备的控制阻尼和刚度系数进行最大化的。结果对入射波方向具有鲁棒性，并施加了一个撞击约束以确保结果在物理上是真实的。我们展示了随机优化问题是良好定义的。然后考虑了两种处理随机性的优化方法：随机逼近和样本平均逼近。然后讨论了针对可能具有工程意义的复杂和逼真的阵列配置的优化结果。广泛的数值实验结果表明所提出的计算框架的效率。|[2305.04130](http://arxiv.org/pdf/2305.04130.pdf)|
 |2023-05-05|Multi S-graphs: A Collaborative Semantic SLAM architecture|Multi S-Graphs是一种CSLAM算法，它利用分层语义图的高级语义信息，改善多个机器人之间的循环闭合过程和协同地图生成，同时最小化机器人之间的信息交换。实验结果表明，该算法在地图生成任务中表现出了良好的性能。|[2305.03441](http://arxiv.org/pdf/2305.03441.pdf)|
 |2023-05-04|Edge-aware Consistent Stereo Video Depth Estimation|我们提出了一种一致的方法，使用立体视频和左右一致性损失来提高性能，进行密集视频深度估计。我们的边缘感知立体视频模型可以准确地估计密集深度图。|[2305.02645](http://arxiv.org/pdf/2305.02645.pdf)|
 |2023-05-03|Direct LiDAR-Inertial Odometry and Mapping: Perceptive and Connective SLAM|本文提出了一种直接LiDAR-惯性里程计和建图（DLIOM）的鲁棒SLAM算法，专注于计算效率、操作可靠性和实际效果。DLIOM包含前端和后端子系统中的关键算法创新，设计出一种具有韧性的LiDAR-惯性体系结构，可感知环境并为自主机器人平台提供精确的定位和高保真的三维建图。作者通过采用积极的安全保护措施来解决常见的算法失效点，以提供长期的操作可靠性。他们还详细介绍了定位精度和建图弹性方面的创新，以全面提高算法速度、精度和鲁棒性。文章还包括了在资源受限系统上实现这种复杂系统进行实时状态估计所获得的见解，实验结果显示了他们的方法在公共基准和自采集数据集上与现有技术相比的性能提高。|[2305.01843](http://arxiv.org/pdf/2305.01843.pdf)|
@@ -39,6 +41,9 @@
 
 | 发布时间 | 标题 | 总结 | 论文 | 代码 |
 |:-:|:-:|:-:|:-:|:-:|
+|2023-05-08|AvatarReX: Real-time Expressive Full-body Avatars|AvatarReX是一种从视频数据中学习基于NeRF的全身分身的方法。该分身支持实时动画和渲染，并以组合方式表示，分别对身体、手和脸进行建模，以适当利用参数化网格模板的结构先验，而不影响表示灵活性。此外，我们对每个部分的几何和外观进行了解耦，提出了一种专门的延迟渲染管道，可以以实时帧速率执行，合成高质量的自由视图图像。几何和外观的解耦还使我们能够设计一种两步训练策略，将体积渲染和表面渲染相结合进行网络训练。综上所述，我们的方法实现了具有实时渲染能力的表达丰富的全身分身的自动构建，并能够为新颖的身体动作和面部表情生成具有动态细节的照片般逼真的图像。|[2305.04789](http://arxiv.org/pdf/2305.04789.pdf)|
+|2023-05-07|HashCC: Lightweight Method to Improve the Quality of the Camera-less NeRF Scene Generation|神经辐射场已成为通过视图合成生成场景的重要方法。原始算法学习有意义的场景表示的一个关键要求是每个图像的相机姿态信息。当前的方法尝试通过学习场景的神经表示来绕过这个假设，但效果一般。这需要复杂的相机模型，导致长时间和复杂的训练过程，或者在渲染场景时缺乏纹理和清晰细节。本文介绍了哈希颜色校正(HashCC)——一种轻量级的方法，用于提高神经辐射场渲染图像的质量，也适用于给定图像集的相机位置未知的情况。|[2305.04296](http://arxiv.org/pdf/2305.04296.pdf)|
+|2023-05-07|Multi-Space Neural Radiance Fields|本文提出了一种多空间神经辐射场(MS-NeRF)方法，以解决现有的NeRF方法中由反射物体引起的模糊或扭曲渲染问题。MS-NeRF使用一组特征场在并行子空间中表示场景，增强了神经网络对反射和折射物体的理解。该方法与现有NeRF方法兼容，只需要很小的计算开销。在由25个合成场景和7个具有复杂反射和折射的实际拍摄场景组成的数据集上进行的实验表明，MS-NeRF明显优于现有的单空间NeRF方法，可以渲染出通过镜面物体的复杂光路径的高质量场景。代码和数据集可在https://zx-yin.github.io/msnerf上公开获取。|[2305.04268](http://arxiv.org/pdf/2305.04268.pdf)|[Link](https://zx-yin.github.io/msnerf)|
 |2023-05-04|NeRF-QA: Neural Radiance Fields Quality Assessment Database|本文提出了NeRF-QA数据库，其中包含48个视频，这些视频使用七种基于NeRF的方法合成，包括真实的和合成的360度场景，并附有主观质量评分。该数据库将允许评估现有客观质量度量方法对于NeRF合成视图的适用性，以及开发特定于此案例的新的质量度量方法。|[2305.03176](http://arxiv.org/pdf/2305.03176.pdf)|
 |2023-05-04|NeuralEditor: Editing Neural Radiance Fields via Manipulating Point Clouds|本文提出了NeuralEditor，它通过显式点云表示和新颖的渲染方案，使神经辐射场（NeRFs）可进行形状编辑。NeuralEditor在形状变形和场景变形任务上实现了最先进的性能，并支持零样本推理和微调。代码、基准测试和演示视频可在https://immortalco.github.io/NeuralEditor获得。|[2305.03049](http://arxiv.org/pdf/2305.03049.pdf)|[Link](https://github.com/immortalco/NeuralEditor)|
 |2023-05-04|Radiance Field Gradient Scaling for Unbiased Near-Camera Training|本文提出了一种梯度缩放方法，以抵消NeRF采集中的采样偏差，从而防止背景坍塌和浮动伪影。我们的方法不需要近平面，可以在大多数NeRF实现中使用，且仅需几行代码即可实现，没有任何显著的额外开销。|[2305.02756](http://arxiv.org/pdf/2305.02756.pdf)|

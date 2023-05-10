@@ -18,12 +18,13 @@
 
 [SLAM](#SLAM) | [NeRF](#NeRF)
 
-> ### `更新时间：2023-05-10 07:05:34`
+> ### `更新时间：2023-05-10 13:11:53`
 
 ## **SLAM**
 
 | 发布时间 | 标题 | 总结 | 论文 | 代码 |
 |:-:|:-:|:-:|:-:|:-:|
+|2023-05-09|Understanding why SLAM algorithms fail in modern indoor environments|本文提出了一种评估策略和数据集，用于在复杂的室内环境中测试和比较同时定位和地图构建（SLAM）算法。基于轨迹误差、尺度漂移和地图精度等指标，分析了最先进的SLAM算法。结果表明，在具有动态物体、反射/透明表面的复杂环境中，SLAM算法经常失败。成功的回环检测对算法性能产生了重大影响，强调了需要进一步研究以提高算法在实际环境中的鲁棒性。|[2305.05313](http://arxiv.org/pdf/2305.05313.pdf)|
 |2023-05-07|Simulation of Dynamic Environments for SLAM|仿真引擎缺乏完全的控制、ROS集成、逼真的物理效果或照片般的真实感。GRADE是一个生成逼真的动态环境的框架。YOLO和Mask R-CNN模型表明需要在动态SLAM方面进行额外的研究。代码和数据是开源的。|[2305.04286](http://arxiv.org/pdf/2305.04286.pdf)|[Link](https://eliabntt.github.io/grade-rrSimulation)|
 |2023-05-06|Robust optimization of control parameters for WEC arrays using stochastic methods|本文提出了一个计算优化框架，用于在不规则波中对波浪能转换器（WEC）的公园进行鲁棒控制。WEC公园的功率是针对每个设备的控制阻尼和刚度系数进行最大化的。结果对入射波方向具有鲁棒性，并施加了一个撞击约束以确保结果在物理上是真实的。我们展示了随机优化问题是良好定义的。然后考虑了两种处理随机性的优化方法：随机逼近和样本平均逼近。然后讨论了针对可能具有工程意义的复杂和逼真的阵列配置的优化结果。广泛的数值实验结果表明所提出的计算框架的效率。|[2305.04130](http://arxiv.org/pdf/2305.04130.pdf)|
 |2023-05-05|Multi S-graphs: A Collaborative Semantic SLAM architecture|Multi S-Graphs是一种CSLAM算法，它利用分层语义图的高级语义信息，改善多个机器人之间的循环闭合过程和协同地图生成，同时最小化机器人之间的信息交换。实验结果表明，该算法在地图生成任务中表现出了良好的性能。|[2305.03441](http://arxiv.org/pdf/2305.03441.pdf)|
@@ -41,6 +42,8 @@
 
 | 发布时间 | 标题 | 总结 | 论文 | 代码 |
 |:-:|:-:|:-:|:-:|:-:|
+|2023-05-09|PET-NeuS: Positional Encoding Tri-Planes for Neural Surfaces|本文介绍PET-NeuS，这是一种使用由MLP参数化的有符号距离函数（SDF）进行神经表面重建的NeuS方法的扩展。PET-NeuS引入了三个新组件：三面体平面表示法以改进数据结构，新的位置编码以对抗噪声，以及使用自注意力卷积进行可学习卷积操作以生成具有不同频带的特征。实验结果表明，PET-NeuS在标准数据集上实现了高保真表面重建，在Nerf-synthetic上改进了57％，在DTU上改进了15.5％。代码可在提供的GitHub链接中找到。|[2305.05594](http://arxiv.org/pdf/2305.05594.pdf)|[Link](https://github.com/yiqun-wang/PET-NeuS)|
+|2023-05-08|NerfAcc: Efficient Sampling Accelerates NeRFs|本文研究并比较多种采样方法，以优化和渲染神经辐射场（NeRF），并表明在透射率估计器的统一概念下，改进采样通常适用于各种NeRF变体。作者开发了NerfAcc，这是一个Python工具箱，提供了灵活的API，可将高级采样方法纳入NeRF相关方法中，最小限度地修改现有代码库即可将几种最近的NeRF方法的训练时间缩短1.5倍至20倍。此外，可以使用NerfAcc在本地PyTorch中实现高度定制的NeRF，例如Instant-NGP。|[2305.04966](http://arxiv.org/pdf/2305.04966.pdf)|
 |2023-05-08|AvatarReX: Real-time Expressive Full-body Avatars|AvatarReX是一种从视频数据中学习基于NeRF的全身分身的方法。该分身支持实时动画和渲染，并以组合方式表示，分别对身体、手和脸进行建模，以适当利用参数化网格模板的结构先验，而不影响表示灵活性。此外，我们对每个部分的几何和外观进行了解耦，提出了一种专门的延迟渲染管道，可以以实时帧速率执行，合成高质量的自由视图图像。几何和外观的解耦还使我们能够设计一种两步训练策略，将体积渲染和表面渲染相结合进行网络训练。综上所述，我们的方法实现了具有实时渲染能力的表达丰富的全身分身的自动构建，并能够为新颖的身体动作和面部表情生成具有动态细节的照片般逼真的图像。|[2305.04789](http://arxiv.org/pdf/2305.04789.pdf)|
 |2023-05-07|HashCC: Lightweight Method to Improve the Quality of the Camera-less NeRF Scene Generation|神经辐射场已成为通过视图合成生成场景的重要方法。原始算法学习有意义的场景表示的一个关键要求是每个图像的相机姿态信息。当前的方法尝试通过学习场景的神经表示来绕过这个假设，但效果一般。这需要复杂的相机模型，导致长时间和复杂的训练过程，或者在渲染场景时缺乏纹理和清晰细节。本文介绍了哈希颜色校正(HashCC)——一种轻量级的方法，用于提高神经辐射场渲染图像的质量，也适用于给定图像集的相机位置未知的情况。|[2305.04296](http://arxiv.org/pdf/2305.04296.pdf)|
 |2023-05-07|Multi-Space Neural Radiance Fields|本文提出了一种多空间神经辐射场(MS-NeRF)方法，以解决现有的NeRF方法中由反射物体引起的模糊或扭曲渲染问题。MS-NeRF使用一组特征场在并行子空间中表示场景，增强了神经网络对反射和折射物体的理解。该方法与现有NeRF方法兼容，只需要很小的计算开销。在由25个合成场景和7个具有复杂反射和折射的实际拍摄场景组成的数据集上进行的实验表明，MS-NeRF明显优于现有的单空间NeRF方法，可以渲染出通过镜面物体的复杂光路径的高质量场景。代码和数据集可在https://zx-yin.github.io/msnerf上公开获取。|[2305.04268](http://arxiv.org/pdf/2305.04268.pdf)|[Link](https://zx-yin.github.io/msnerf)|

@@ -2,23 +2,17 @@
 
 [中文](./README_ZH.md) | English
 
-🔥 This repo collects the latest research papers in the field of **Artificial Intelligence** from [arXiv](https://arxiv.org/) and uses ChatGPT to summarize them, providing convenience for anyone who wants to study them
+🔥 This repo collects the latest research papers in the field of **SLAM** from [arXiv](https://arxiv.org/) and uses [ChatGPT](https://chat.openai.com) to summarize them, providing convenience for anyone who wants to study them
 
-
-
-🛠️ The next step is to implement extensions for ![Chrome][Chrome-image] ![Edge][Edge-image], while continuously updating the topic of the paper.
+🛠️ Support privatized deployment, welcome to view [deployment document](./DEPLOY.md#deploy)
 
 🤗 Anyone who is interested is welcome to contribute to this repo! 
-
-[Chrome-image]: https://img.shields.io/badge/-Chrome-brightgreen?logo=google-chrome&logoColor=white
-
-[Edge-image]: https://img.shields.io/badge/-Edge-blue?logo=microsoft-edge&logoColor=white
 
 ---
 
 [SLAM](#SLAM) | [NeRF](#NeRF)
 
-> ### `Update(BJT)：2023-05-03 15:59:09`
+> ### `Update(BJT)：2023-05-11 19:52:28`
 
 <details><summary>
 

@@ -18,7 +18,7 @@
 
 [SLAM](#SLAM) | [NeRF](#NeRF)
 
-> ### `更新时间：2023-05-11 07:05:42`
+> ### `更新时间：2023-05-11 13:11:45`
 
 ## **SLAM**
 
@@ -42,6 +42,9 @@
 
 | 发布时间 | 标题 | 总结 | 论文 | 代码 |
 |:-:|:-:|:-:|:-:|:-:|
+|2023-05-10|Generative AI meets 3D: A Survey on Text-to-3D in AIGC Era|本文讨论了生成式人工智能的进展，特别是以文本为导向的内容生成和新兴的文本到三维领域。文章提供了关于文本到三维的全面调查，包括三维数据表示、基础技术、最近的研究和各种应用。|[2305.06131](http://arxiv.org/pdf/2305.06131.pdf)|
+|2023-05-10|NeRF$^\textbf{2}$: Neural Radio-Frequency Radiance Fields|本文讨论使用神经射频辐射场NeRF$^\textbf{2}$来模拟复杂环境中射频信号的传播。NeRF$^\textbf{2}$可以生成一个合成数据集，通过turbo-learning来提高应用层人工神经网络（ANNs）的性能。本文还展示了NeRF$^\textbf{2}$在室内定位和5G MIMO领域的应用。|[2305.06118](http://arxiv.org/pdf/2305.06118.pdf)|
+|2023-05-09|Instant-NeRF: Instant On-Device Neural Radiance Field Training via Algorithm-Accelerator Co-Designed Near-Memory Processing|本文讨论了一种近存储器处理（NMP）框架Instant-NeRF的开发，该框架专门用于实现即时的设备端神经辐射场（NeRFs）训练，以实现沉浸式AR/VR体验。文章强调了NeRFs的独特工作负载和NMP面临的挑战，但是实验结果表明Instant-NeRF在八个数据集上的有效性始终得到验证。|[2305.05766](http://arxiv.org/pdf/2305.05766.pdf)|
 |2023-05-09|PET-NeuS: Positional Encoding Tri-Planes for Neural Surfaces|本文介绍PET-NeuS，这是一种使用由MLP参数化的有符号距离函数（SDF）进行神经表面重建的NeuS方法的扩展。PET-NeuS引入了三个新组件：三面体平面表示法以改进数据结构，新的位置编码以对抗噪声，以及使用自注意力卷积进行可学习卷积操作以生成具有不同频带的特征。实验结果表明，PET-NeuS在标准数据集上实现了高保真表面重建，在Nerf-synthetic上改进了57％，在DTU上改进了15.5％。代码可在提供的GitHub链接中找到。|[2305.05594](http://arxiv.org/pdf/2305.05594.pdf)|[Link](https://github.com/yiqun-wang/PET-NeuS)|
 |2023-05-08|NerfAcc: Efficient Sampling Accelerates NeRFs|本文研究并比较多种采样方法，以优化和渲染神经辐射场（NeRF），并表明在透射率估计器的统一概念下，改进采样通常适用于各种NeRF变体。作者开发了NerfAcc，这是一个Python工具箱，提供了灵活的API，可将高级采样方法纳入NeRF相关方法中，最小限度地修改现有代码库即可将几种最近的NeRF方法的训练时间缩短1.5倍至20倍。此外，可以使用NerfAcc在本地PyTorch中实现高度定制的NeRF，例如Instant-NGP。|[2305.04966](http://arxiv.org/pdf/2305.04966.pdf)|
 |2023-05-08|AvatarReX: Real-time Expressive Full-body Avatars|AvatarReX是一种从视频数据中学习基于NeRF的全身分身的方法。该分身支持实时动画和渲染，并以组合方式表示，分别对身体、手和脸进行建模，以适当利用参数化网格模板的结构先验，而不影响表示灵活性。此外，我们对每个部分的几何和外观进行了解耦，提出了一种专门的延迟渲染管道，可以以实时帧速率执行，合成高质量的自由视图图像。几何和外观的解耦还使我们能够设计一种两步训练策略，将体积渲染和表面渲染相结合进行网络训练。综上所述，我们的方法实现了具有实时渲染能力的表达丰富的全身分身的自动构建，并能够为新颖的身体动作和面部表情生成具有动态细节的照片般逼真的图像。|[2305.04789](http://arxiv.org/pdf/2305.04789.pdf)|

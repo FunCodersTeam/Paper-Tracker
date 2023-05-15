@@ -18,12 +18,14 @@
 
 [SLAM](#SLAM) | [NeRF](#NeRF)
 
-> ### `更新时间：2023-05-15 07:04:42`
+> ### `更新时间：2023-05-15 13:12:58`
 
 ## **SLAM**
 
 | 发布时间 | 标题 | 总结 | 论文 | 代码 |
 |:-:|:-:|:-:|:-:|:-:|
+|2023-05-12|An Object SLAM Framework for Association, Mapping, and High-Level Tasks|本文提出了一个全面的基于对象的SLAM框架，侧重于基于对象的感知和面向对象的机器人任务。该框架提出了一个集合数据关联方法、一个鲁棒的离群点质心和尺度估计算法以及一个轻量级的基于对象的地图。将对象地图转换为拓扑地图，并建议采用基于对象的主动探索策略来实现抓取场景下的自主建图。使用公共数据集和真实世界结果评估所提出的对象SLAM框架的高效性。|[2305.07299](http://arxiv.org/pdf/2305.07299.pdf)|
+|2023-05-11|Foundations of Spatial Perception for Robotics: Hierarchical Representations and Real-time Systems|本文介绍了Hydra，这是一个实时的空间感知系统，通过结合3D几何、拓扑和几何深度学习，建立了一个3D情景图。本文提出了一种分层表示方法，用于可扩展的空间感知，并讨论了其结构和属性。介绍了增量构建和长期维护3D情景图的算法，包括用于回路闭合检测的分层描述符和3D情景图优化问题的解决方案。Hydra在照片逼真的模拟和真实数据中进行了评估，并提供了开源实现。|[2305.07154](http://arxiv.org/pdf/2305.07154.pdf)|[Link](https://github.com/MIT-SPARK/Hydra)|
 |2023-05-09|Understanding why SLAM algorithms fail in modern indoor environments|本文提出了一种评估策略和数据集，用于在复杂的室内环境中测试和比较同时定位和地图构建（SLAM）算法。基于轨迹误差、尺度漂移和地图精度等指标，分析了最先进的SLAM算法。结果表明，在具有动态物体、反射/透明表面的复杂环境中，SLAM算法经常失败。成功的回环检测对算法性能产生了重大影响，强调了需要进一步研究以提高算法在实际环境中的鲁棒性。|[2305.05313](http://arxiv.org/pdf/2305.05313.pdf)|
 |2023-05-07|Simulation of Dynamic Environments for SLAM|仿真引擎缺乏完全的控制、ROS集成、逼真的物理效果或照片般的真实感。GRADE是一个生成逼真的动态环境的框架。YOLO和Mask R-CNN模型表明需要在动态SLAM方面进行额外的研究。代码和数据是开源的。|[2305.04286](http://arxiv.org/pdf/2305.04286.pdf)|[Link](https://eliabntt.github.io/grade-rrSimulation)|
 |2023-05-06|Robust optimization of control parameters for WEC arrays using stochastic methods|本文提出了一个计算优化框架，用于在不规则波中对波浪能转换器（WEC）的公园进行鲁棒控制。WEC公园的功率是针对每个设备的控制阻尼和刚度系数进行最大化的。结果对入射波方向具有鲁棒性，并施加了一个撞击约束以确保结果在物理上是真实的。我们展示了随机优化问题是良好定义的。然后考虑了两种处理随机性的优化方法：随机逼近和样本平均逼近。然后讨论了针对可能具有工程意义的复杂和逼真的阵列配置的优化结果。广泛的数值实验结果表明所提出的计算框架的效率。|[2305.04130](http://arxiv.org/pdf/2305.04130.pdf)|
@@ -42,6 +44,7 @@
 
 | 发布时间 | 标题 | 总结 | 论文 | 代码 |
 |:-:|:-:|:-:|:-:|:-:|
+|2023-05-12|BundleRecon: Ray Bundle-Based 3D Neural Reconstruction|本文提出了BundleRecon，这是一个增强的神经隐式多视图重建模型，通过使用一束光线采样一组像素来利用相邻像素的信息。此外，我们设计了基于束的约束来进一步提高重建质量。实验结果表明，BundleRecon与现有的神经隐式多视图重建方法兼容，并且可以提高重建质量。|[2305.07342](http://arxiv.org/pdf/2305.07342.pdf)|
 |2023-05-10|Generative AI meets 3D: A Survey on Text-to-3D in AIGC Era|本文讨论了生成式人工智能的进展，特别是以文本为导向的内容生成和新兴的文本到三维领域。文章提供了关于文本到三维的全面调查，包括三维数据表示、基础技术、最近的研究和各种应用。|[2305.06131](http://arxiv.org/pdf/2305.06131.pdf)|
 |2023-05-10|NeRF$^\textbf{2}$: Neural Radio-Frequency Radiance Fields|本文讨论使用神经射频辐射场NeRF$^\textbf{2}$来模拟复杂环境中射频信号的传播。NeRF$^\textbf{2}$可以生成一个合成数据集，通过turbo-learning来提高应用层人工神经网络（ANNs）的性能。本文还展示了NeRF$^\textbf{2}$在室内定位和5G MIMO领域的应用。|[2305.06118](http://arxiv.org/pdf/2305.06118.pdf)|
 |2023-05-09|Instant-NeRF: Instant On-Device Neural Radiance Field Training via Algorithm-Accelerator Co-Designed Near-Memory Processing|本文讨论了一种近存储器处理（NMP）框架Instant-NeRF的开发，该框架专门用于实现即时的设备端神经辐射场（NeRFs）训练，以实现沉浸式AR/VR体验。文章强调了NeRFs的独特工作负载和NMP面临的挑战，但是实验结果表明Instant-NeRF在八个数据集上的有效性始终得到验证。|[2305.05766](http://arxiv.org/pdf/2305.05766.pdf)|

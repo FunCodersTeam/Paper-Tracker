@@ -58,14 +58,14 @@ class Tracker:
         return self
 
     def __update(self):
-        import shutil
-        import tempfile
+        from shutil import copy
+        from tempfile import NamedTemporaryFile
         from datetime import datetime, timezone, timedelta
 
-        def update(file, zh = False) -> None:
+        def update(file, zh: bool = False) -> None:
             with open(file, "r", encoding = self.config["encoding"]) as file:
-                with tempfile.NamedTemporaryFile(mode = "w+", encoding = self.config["encoding"], delete = False) as temp_file:
-                    i, keys, key, msgs = 0, list(self.__new.keys()), 0, ""
+                with NamedTemporaryFile(mode = "w+", encoding = self.config["encoding"], delete = False) as temp_file:
+                    keys, key, msgs = list(self.__new.keys()), 0, ""
 
                     for line in file:
                         if line.startswith("> ### `"):
@@ -86,9 +86,8 @@ class Tracker:
                             key += 1
                         else:
                             temp_file.write(line)
-                        i += 1
                     temp_file.flush()
-                    shutil.copy(temp_file.name, file.name)
+                    copy(temp_file.name, file.name)
             self.__wechat(msgs)
 
         tz = timezone(timedelta(hours = 8))
@@ -97,7 +96,7 @@ class Tracker:
         update(self.config["zh_md"], True)
 
     def __chatgpt(self):
-        import time
+        from time import sleep
         from poe import Client
         from random import randrange
 
@@ -109,23 +108,25 @@ class Tracker:
             for j in self.__new[i]:
                 for chunk in bot.send_message("capybara", f'title:{j["title"][0]},content:{j["context"][0]}'):
                     pass
+                
+                try:
+                    j["context"] = [self.__latex(search(r"'en':\s*[\'\"](.+?)[\'\"],\s*'zh':", chunk["text"]).group(1)), \
+                                self.__latex(search(r"'zh':\s*[\'\"](.+?)[\'\"],\s*'title':", chunk["text"]).group(1))]
+                    j["title"][1] = self.__latex(search(r"'title':\s*[\'\"](.+?)[\'\"]\s*}", chunk["text"]).group(1))
+                except Exception as error:
+                    print(error)
 
-                j["context"] = [self.__latex(search(r"'en':\s*'(.+?)',", chunk["text"]).group(1)), \
-                                self.__latex(search(r"'zh':\s*'(.+?)',", chunk["text"]).group(1))]
-                j["title"][1] = self.__latex(search(r"'title':\s*'(.+?)'}", chunk["text"]).group(1))
-
-                timer = randrange(100, 120)
-                time.sleep(timer)
+                sleep(randrange(100, 120))
     
     @staticmethod
-    def __latex(text):
+    def __latex(text: str):
         return sub(r"(\$[^\$]+\$)", r" \1", text)
 
     def __wechat(self, msg: str):
         if not msg: return
         from wxpusher import WxPusher
         msg = f"<center>\n\r{msg}</center>"
-        WxPusher.send_message(msg, content_type = 3 ,topic_ids = ["9888"], token = environ["WX"], \
+        WxPusher.send_message(msg, content_type = 3 ,topic_ids = self.config["topic_ids"], token = environ["WX"], \
                               url = "https://github.com/FunCodersTeam/AI-Paper-Tracker")
 
     def __clean(self):

@@ -2,7 +2,7 @@
 
 中文 | [English](./README.md)
 
-🔥 该 repo 会自动收集 [arXiv](https://arxiv.org/) 上**SLAM**方向最新的论文，并使用 [ChatGPT](https://chat.openai.com) 对论文进行总结
+🔥 该 repo 会自动收集 [arXiv](https://arxiv.org/) 上 **VSLAM** 领域的最新研究论文，并使用 [ChatGPT](https://chat.openai.com) 对论文进行总结
 
 🔔 支持微信推送，[点击订阅](https://wxpusher.zjiecode.com/wxuser/?type=2&id=9888#/follow)
 

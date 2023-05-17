@@ -127,7 +127,7 @@ class Tracker:
         from wxpusher import WxPusher
         msg = f"<center>\n\r{msg}</center>"
         WxPusher.send_message(msg, content_type = 3 ,topic_ids = self.config["topic_ids"], token = environ["WX"], \
-                              url = "https://github.com/FunCodersTeam/AI-Paper-Tracker")
+                              url = "https://github.com/FunCodersTeam/Paper-Tracker")
 
     def __clean(self):
         pass

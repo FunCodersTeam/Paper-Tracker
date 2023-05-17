@@ -3,6 +3,10 @@ name: Update
 on:
   schedule:
     - cron: "0 23,5,11 * * *"
+
+env:
+  GITHUB_USER_NAME: guidons-master
+  GITHUB_USER_EMAIL: guidons.tech@gmail.com
   
 jobs:
   update:
@@ -36,3 +40,5 @@ jobs:
           commit-message: "Github Action Update"
           files: README.md README_ZH.md config.json
           rebase: 'true'
+          name: ${{ env.GITHUB_USER_NAME }}
+          email: ${{ env.GITHUB_USER_EMAIL }}
